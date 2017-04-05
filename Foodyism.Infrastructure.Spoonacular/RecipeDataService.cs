@@ -14,7 +14,7 @@ namespace Foodyism.Infrastructure.Spoonacular
 			var res = await RestHelper<FullRecipeDto>.GetAsync(string.Format("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{0}/information?includeNutrition=false", recipe.Id));
 			if (res.IsSuccessful)
 			{
-				return new DataResult<IRecipe>(RecipeDtoFactory.CreateFull(res.Body));
+				return new DataResult<IRecipe>(RecipeDtoFactory.CreateFull(res.Body, recipe));
 			}
 			else if (res.Code == System.Net.HttpStatusCode.Unauthorized)
 			{

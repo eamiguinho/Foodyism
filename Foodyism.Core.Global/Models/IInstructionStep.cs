@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace Foodyism.Core.Global
 {
-
 	public interface IInstructionStep
 	{
 		string Description { get; set; }

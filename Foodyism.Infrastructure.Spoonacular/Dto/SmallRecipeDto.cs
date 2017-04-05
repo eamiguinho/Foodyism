@@ -103,9 +103,19 @@ namespace Foodyism.Infrastructure.Spoonacular
 			return recipe;
 		}
 
-		public static IRecipe CreateFull(FullRecipeDto dto)
+		public static IRecipe CreateFull(FullRecipeDto dto, IRecipe baseRecipe)
 		{
 			var recipe = Create(dto);
+			if (baseRecipe.Ingredients != null)
+			{
+				recipe.Ingredients = baseRecipe.Ingredients;
+			}
+			else {
+				recipe.Ingredients = new List<IIngredient>();
+				foreach (var ing in dto.ExtendedIngredients) {
+					recipe.Ingredients.Add(IngredientDtoFactory.Create(ing));
+				}
+			}
 			recipe.SimpleInstructions = dto.Instructions;
 			recipe.DetailedInstructions = dto.AnalyzedInstructions.Select(AnalyzedInstructionDtoFactory.Create).ToList();
 			recipe.ReadyInMinutes = dto.ReadyInMinutes;

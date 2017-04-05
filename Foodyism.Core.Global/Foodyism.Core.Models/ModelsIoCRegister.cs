@@ -11,6 +11,7 @@ namespace Foodyism.Core.Models
 			IoC.Builder.RegisterType<Recipe>().As<IRecipe>();
 			IoC.Builder.RegisterType<DetailedInstruction>().As<IDetailedInstruction>();
 			IoC.Builder.RegisterType<Equipment>().As<IEquipment>();
+			IoC.Builder.RegisterType<InstructionStep>().As<IInstructionStep>();
 		}	
 	}
 }
