@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F6FB0BD-B8E2-4217-8BB3-24AE850C2D62}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Foodyism.Infrastructure.Spoonacular.Tests</RootNamespace>
+    <AssemblyName>Foodyism.Infrastructure.Spoonacular.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IngredientsDataServiceTest.cs" />
+    <Compile Include="RecipeDataServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Foodyism.Core.Global\Foodyism.Core.Global.csproj">
+      <Project>{85E56AF0-45B4-4E43-BF17-5B391024C3DF}</Project>
+      <Name>Foodyism.Core.Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Foodyism.Core.Global\Foodyism.Core.Models\Foodyism.Core.Models.csproj">
+      <Project>{0805776C-3039-4A7F-B452-5236BA1D9DEC}</Project>
+      <Name>Foodyism.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Foodyism.Infrastructure.Spoonacular.csproj">
+      <Project>{6A42BC69-F5FE-4AD0-B0FE-EC5816F47348}</Project>
+      <Name>Foodyism.Infrastructure.Spoonacular</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
